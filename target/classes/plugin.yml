@@ -1,0 +1,4 @@
+name: PlayerData
+version: 1.0-SNAPSHOT
+main: com.altoya.playerdata.Main
+api-version: 1.13

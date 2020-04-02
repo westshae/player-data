@@ -1,0 +1,4 @@
+name: PlayerData
+version: ${project.version}
+main: com.altoya.playerdata.Main
+api-version: 1.13
