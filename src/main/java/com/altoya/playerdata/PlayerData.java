@@ -18,17 +18,21 @@ public class PlayerData implements Listener {
         String playerName = player.getName();
 
         File userdata = new File(Bukkit.getServer().getPluginManager().getPlugin("PlayerData").getDataFolder() , File.separator + "PlayerDatabase");
-        File f = new File(userdata, File.separator + playerName + ".yml");
-        FileConfiguration playerData = YamlConfiguration.loadConfiguration(f);
+        File file = new File(userdata, File.separator + playerName + ".yml");
+        FileConfiguration playerData = YamlConfiguration.loadConfiguration(file);
 
-        if(!f.exists()){
+        if(!file.exists()){
             try{
                 playerData.createSection("stats");
                 playerData.set("stats.totalLogins", 1);
 
+                playerData.createSection("faction");
+                playerData.set("faction.hasFaction", false);
+                playerData.set("faction.isLeader", false);
+                playerData.set("faction.power", 1);
 
 
-                playerData.save(f);
+                playerData.save(file);
 
             } catch (IOException exception){
                 exception.printStackTrace();
