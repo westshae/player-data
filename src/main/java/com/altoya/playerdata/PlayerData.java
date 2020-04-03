@@ -30,6 +30,7 @@ public class PlayerData implements Listener {
                 playerData.set("faction.hasFaction", false);
                 playerData.set("faction.isLeader", false);
                 playerData.set("faction.power", 1);
+                playerData.set("faction.name", null);
 
 
                 playerData.save(file);
