@@ -17,11 +17,10 @@ public class PlayerData implements Listener {
         Player player = event.getPlayer();
         String playerName = player.getName();
 
-        File userdata = new File(Bukkit.getServer().getPluginManager().getPlugin("PlayerData").getDataFolder() , File.separator + "PlayerDatabase");
-        File file = new File(userdata, File.separator + playerName + ".yml");
-        FileConfiguration playerData = YamlConfiguration.loadConfiguration(file);
+        File filePlayer = new File(Bukkit.getServer().getPluginManager().getPlugin("PlayerData").getDataFolder(), File.separator + playerName + ".yml");
+        FileConfiguration playerData = YamlConfiguration.loadConfiguration(filePlayer);
 
-        if(!file.exists()){
+        if(!filePlayer.exists()){
             try{
                 playerData.createSection("stats");
                 playerData.set("stats.totalLogins", 1);
@@ -33,7 +32,7 @@ public class PlayerData implements Listener {
                 playerData.set("faction.name", null);
 
 
-                playerData.save(file);
+                playerData.save(filePlayer);
 
             } catch (IOException exception){
                 exception.printStackTrace();
